@@ -26,8 +26,6 @@ class ProdutosRequest extends FormRequest
         return [
            'codigo_produto' => 'required|max:10',
            'descricao' => 'required|max:100',
-           'valor' => 'required|max:100',
-           'valor' => 'required|numeric',
         ];
     }
 
@@ -36,8 +34,6 @@ class ProdutosRequest extends FormRequest
         return [
             'codigo_produto.required' => 'Código do Produto deve ser preenchido.',
             'descricao.required' => 'Descrição deve ser preenchida.',
-            'valor.required' => 'Valor deve ser preenchida.',
-            'valor.numeric' => 'O campo valor deve ser númerico.',
         ];
     }
 }

@@ -15,7 +15,6 @@ class NovoCampoProdutos extends Migration
     {
         Schema::table('produtos', function($table){
             $table->string('codigo_produto');
-            $table->string('path_image');
         });    
     }
 

@@ -23,13 +23,13 @@
         </div>
     </div>
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="valor">Valor</label>  
-        <div class="col-md-4">
-            <input id="valor" name="valor" type="text" value="{{$p->valor}}" placeholder="Insira um valor" class="form-control input-md" required>
-        </div>
-    </div>
+    {{--<!-- Text input-->--}}
+    {{--<div class="form-group">--}}
+      {{--<label class="col-md-4 control-label" for="valor">Valor</label>  --}}
+        {{--<div class="col-md-4">--}}
+            {{--<input id="valor" name="valor" type="text" value="{{$p->valor}}" placeholder="Insira um valor" class="form-control input-md" required>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
     <!-- Select Basic -->
     <div class="form-group">
@@ -47,21 +47,21 @@
         </div>
     </div>
 
-    <input type="hidden" name="primaryImage">
+    {{--<input type="hidden" name="primaryImage">--}}
 
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="categoria">Alterar Foto</label>
-        <div class="col-md-4">
-            <input type='file' id="primaryImage" name="primaryImage" accept="image/*" />
-        </div>
-    </div>
+    {{--<div class="form-group">--}}
+        {{--<label class="col-md-4 control-label" for="categoria">Alterar Foto</label>--}}
+        {{--<div class="col-md-4">--}}
+            {{--<input type='file' id="primaryImage" name="primaryImage" accept="image/*" />--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="categoria">Foto Atual</label>
-        <div class="col-md-4">
-            <img width="150" src="{{ $p->path_image }}">
-        </div>
-    </div>     
+    {{--<div class="form-group">--}}
+        {{--<label class="col-md-4 control-label" for="categoria">Foto Atual</label>--}}
+        {{--<div class="col-md-4">--}}
+            {{--<img width="150" src="{{ $p->path_image }}">--}}
+        {{--</div>--}}
+    {{--</div>     --}}
     <!-- Button -->
     <div class="form-group">
         <label class="col-md-4 control-label" for="salvar"></label>

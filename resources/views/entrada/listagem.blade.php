@@ -2,9 +2,8 @@
 @section('conteudo')
 <div class="container">
   <h2>Entradas</h2>
-  <ul class="nav navbar-nav">
-    <li><a href="{{action('EntradaController@novo')}}">Lançar Entrada</a></li>
-  </ul>  
+
+  <button class="btn btn-default"><a href="{{action('EntradaController@novo')}}">Lançar Entrada</a></button>
 
   @if(session()->has('message.level'))
     <div class="alert alert-{{ session('message.level') }}"> 
@@ -16,9 +15,7 @@
     <thead>
       <tr>
         <th>Código Produto</th>
-        <th>Foto</th>
         <th>Descrição</th>
-        <th>Valor</th>
         <th>Data</th>
         <th>Horário</th>
         <th>Quantidade</th>
@@ -30,9 +27,7 @@
       @foreach($produtos as $p)
         <tr>
           <td>{{ $p->codigo_produto }}</td>
-          <td id="imagem">{{ $p->imagens ? "<img width=\"150\" src=\"$p->imagens\">" : 'Sem Foto' }}</td>
           <td>{{ $p->descricao }}</td>
-          <td>R$ {{ $p->valor }}</td>
           <td>{{ date('d/m/Y', strtotime($p->created_at)) }}</td>
           <td>{{ date('H:i:s', strtotime($p->created_at)) }}</td>
           <td>{{ $p->quantidade }}</td>

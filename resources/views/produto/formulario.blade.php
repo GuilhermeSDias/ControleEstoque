@@ -41,13 +41,13 @@
         </div>
     </div>
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="valor">Valor</label>  
-        <div class="col-md-4">
-            <input id="valor" name="valor" value="{{ old('valor') }}" type="text" placeholder="Insira um valor" class="form-control input-md" required>
-        </div>
-    </div>
+    {{--<!-- Text input-->--}}
+    {{--<div class="form-group">--}}
+      {{--<label class="col-md-4 control-label" for="valor">Valor</label>  --}}
+        {{--<div class="col-md-4">--}}
+            {{--<input id="valor" name="valor" value="{{ old('valor') }}" type="text" placeholder="Insira um valor" class="form-control input-md" required>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
     <!-- Select Basic -->
     <div class="form-group">
@@ -61,12 +61,12 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="categoria">Inserir Foto</label>
-        <div class="col-md-4">
-            <input type='file' id="primaryImage" name="primaryImage" value="{{ old('primaryImage') }}" accept="image/*" />
-        </div>
-    </div>
+    {{--<div class="form-group">--}}
+        {{--<label class="col-md-4 control-label" for="categoria">Inserir Foto</label>--}}
+        {{--<div class="col-md-4">--}}
+            {{--<input type='file' id="primaryImage" name="primaryImage" value="{{ old('primaryImage') }}" accept="image/*" />--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
     <!-- Button -->
     <div class="form-group">
