@@ -53,7 +53,7 @@ class RelatorioController extends Controller
                     ->whereBetween('entradas.created_at',array($request["inicio"],$request["fim"]))
                     ->groupBy('produtos.codigo_produto','produtos.descricao','entradas.quantidade','entradas.created_at')
                     ->getQuery() // Optional: downgrade to non-eloquent builder so we don't build invalid User objects.
-                    ->orderBy('produtos.descricao')
+                    ->orderBy('produtos.descricao','entradas.created_at')
                     ->get();
 
                 $_REQUEST["id_relatorio"] = $request["id_relatorio"];
@@ -66,7 +66,7 @@ class RelatorioController extends Controller
                 ->whereBetween('saidas.created_at',array($request["inicio"],$request["fim"]))
                 ->groupBy('produtos.codigo_produto','produtos.descricao','saidas.quantidade','saidas.created_at')
                 ->getQuery() // Optional: downgrade to non-eloquent builder so we don't build invalid User objects.
-                ->orderBy('produtos.descricao')
+                ->orderBy('produtos.descricao', 'entradas.created_at')
                 ->get();
 
                 $_REQUEST["id_relatorio"] = $request["id_relatorio"];
