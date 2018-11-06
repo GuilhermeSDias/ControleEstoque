@@ -15,7 +15,7 @@ class MovimentacaoController extends Controller
         // $produtos = Produto::all();
         $produtos = Produto
         ::join('entradas', 'produtos.id_produto', '=', 'entradas.fk_produto')
-        ->select('produtos.codigo_produto','produtos.descricao', 'produtos.valor', 'entradas.created_at','entradas.quantidade')
+        ->select('produtos.codigo_produto','produtos.descricao', 'entradas.created_at','entradas.quantidade')
         ->getQuery() // Optional: downgrade to non-eloquent builder so we don't build invalid User objects.
         ->get();
 
@@ -27,7 +27,7 @@ class MovimentacaoController extends Controller
         // $produtos = Produto::all();
         $produtos = Produto
         ::join('entradas', 'produtos.id_produto', '=', 'entradas.fk_produto')
-        ->select('produtos.codigo_produto','produtos.descricao', 'produtos.valor', 'entradas.created_at','entradas.quantidade')
+        ->select('produtos.codigo_produto','produtos.descricao', 'entradas.created_at','entradas.quantidade')
         ->getQuery() // Optional: downgrade to non-eloquent builder so we don't build invalid User objects.
         ->get();
 

@@ -13,10 +13,10 @@
             <label class="col-md-4 control-label" for="textinput">Selecione o Relatório</label>  
             <div class="col-md-4">
               <select id="categoria" name="id_relatorio" value="{{ old('id_relatorio') }}" class="form-control js-example-basic-multiple-limit">
-                      <option value="1">Produtos Mais Vendidos</option>
-                      <option value="2">Categorias Mais Vendidas</option>
-                      <option value="3">Categorias Mais Entradas</option>
-                      <option value="4">Quantidade de vendas on-line</option>
+                      <option value="1">Categorias Mais Entradas</option>
+                      <option value="2">Categorias Mais Saídas</option>
+                      <option value="3">Produtos Entrados</option>
+                      <option value="4">Produtos Saídos</option>
               </select>
             </div>
         </div>
@@ -46,23 +46,23 @@
 
     @if(isset($relatorios))
         @switch($_REQUEST["id_relatorio"])
-            @case(1)
+                @case(1)
                 <table id="listagem" class="table table-bordered">
                     <thead>
-                      <tr>
-                        <th>Código Produto</th>
-                        <th>Descrição</th>
+                    <tr>
+                        <th>Nome Categoria</th>
                         <th>Quantidade</th>
-                      </tr>
+                        <th>Horário</th>
+                    </tr>
                     </thead>
                     <tbody>
-                      @foreach($relatorios as $r)
+                    @foreach($relatorios as $r)
                         <tr>
-                          <td>{{ $r->codigo_produto }}</td>
-                          <td>{{ $r->descricao }}</td>
-                          <td>{{ $r->contador }}</td>
+                            <td>{{ $r->nome }}</td>
+                            <td>{{ $r->contador }}</td>
+                            <td>{{ date('H:i:s', strtotime($r->created_at)) }}</td>
                         </tr>
-                      @endforeach
+                    @endforeach
                     </tbody>
                 </table>
                 @break
@@ -72,6 +72,7 @@
                       <tr>
                         <th>Nome Categoria</th>
                         <th>Quantidade</th>
+                        <th>Horário</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -79,48 +80,92 @@
                         <tr>
                           <td>{{ $r->nome }}</td>
                           <td>{{ $r->contador }}</td>
+                          <td>{{ date('H:i:s', strtotime($r->created_at)) }}</td>
                         </tr>
                       @endforeach
                     </tbody>
                 </table>
                 @break
-            @case(3)
+                @case(3)
                 <table id="listagem" class="table table-bordered">
                     <thead>
-                      <tr>
-                        <th>Nome Categoria</th>
+                    <tr>
+                        <th>Código Produto</th>
+                        <th>Descrição</th>
                         <th>Quantidade</th>
-                      </tr>
+                        <th>Horário</th>
+                    </tr>
                     </thead>
                     <tbody>
-                      @foreach($relatorios as $r)
+                    @foreach($relatorios as $r)
                         <tr>
-                          <td>{{ $r->nome }}</td>
-                          <td>{{ $r->contador }}</td>
+                            <td>{{ $r->codigo_produto }}</td>
+                            <td>{{ $r->descricao }}</td>
+                            <td>{{ $r->quantidade }}</td>
+                            <td>{{ date('H:i:s', strtotime($r->created_at)) }}</td>
                         </tr>
-                      @endforeach
-                    </tbody>
-                </table>
-                @break           
-            @case(4)
-
-                <table id="listagem" class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Valor</th>
-                        <th>Quantidade de vendas</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($relatorios as $r)
-                        <tr>
-                          <td>R${{ $r->valor }}</td>
-                          <td>{{ $r->quantidade }}</td>
-                        </tr>
-                      @endforeach
+                    @endforeach
                     </tbody>
                 </table>
                 @break
+                @case(4)
+                <table id="listagem" class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Código Produto</th>
+                        <th>Descrição</th>
+                        <th>Quantidade</th>
+                        <th>Horário</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($relatorios as $r)
+                        <tr>
+                            <td>{{ $r->codigo_produto }}</td>
+                            <td>{{ $r->descricao }}</td>
+                            <td>{{ $r->quantidade }}</td>
+                            <td>{{ date('H:i:s', strtotime($r->created_at)) }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+                @break
+                {{--@case(4)--}}
+                {{--<table id="listagem" class="table table-bordered">--}}
+                    {{--<thead>--}}
+                    {{--<tr>--}}
+                        {{--<th>Nome Produto</th>--}}
+                        {{--<th>Quantidade</th>--}}
+                    {{--</tr>--}}
+                    {{--</thead>--}}
+                    {{--<tbody>--}}
+                    {{--@foreach($relatorios as $r)--}}
+                        {{--<tr>--}}
+                            {{--<td>{{ $r->nome }}</td>--}}
+                            {{--<td>{{ $r->contador }}</td>--}}
+                        {{--</tr>--}}
+                    {{--@endforeach--}}
+                    {{--</tbody>--}}
+                {{--</table>--}}
+                {{--@break--}}
+                {{--@case(5)--}}
+                {{--<table id="listagem" class="table table-bordered">--}}
+                    {{--<thead>--}}
+                    {{--<tr>--}}
+                        {{--<th>Nome Produto</th>--}}
+                        {{--<th>Quantidade</th>--}}
+                    {{--</tr>--}}
+                    {{--</thead>--}}
+                    {{--<tbody>--}}
+                    {{--@foreach($relatorios as $r)--}}
+                        {{--<tr>--}}
+                            {{--<td>{{ $r->nome }}</td>--}}
+                            {{--<td>{{ $r->contador }}</td>--}}
+                        {{--</tr>--}}
+                    {{--@endforeach--}}
+                    {{--</tbody>--}}
+                {{--</table>--}}
+                {{--@break--}}
                 
             @default
                 <h1>Erro!</h1>
