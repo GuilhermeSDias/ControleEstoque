@@ -35,7 +35,14 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="quantidade">Quantidade</label>  
         <div class="col-md-4">
-            <input id="valor" name="quantidade" value="{{ $e->quantidade}}" type="text" placeholder="Insira quantidade do produto" class="form-control input-md" required>
+            <input id="qunatidade" name="quantidade" value="{{ $e->quantidade}}" type="text" placeholder="Insira quantidade do produto" class="form-control input-md" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="secretaria">Secretaria</label>
+        <div class="col-md-4">
+            <input id="secretaria" name="secretaria" value="{{ $e->secretaria}}" type="text" placeholder="Informe a qual secretaria pertece essa entrada de produtos" class="form-control input-md" required>
         </div>
     </div>
 

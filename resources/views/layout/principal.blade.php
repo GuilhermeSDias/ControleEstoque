@@ -18,13 +18,13 @@
         
         <meta name="viewport" content="width=device-width">
 
-    	<title>Controle de Estoque Purchase Store</title>
+    	<title>Controle de Estoque</title>
     </head>
     <body>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="{{action('ProdutoController@listar')}}">Controle de Estoque</a>
+                            <a class="navbar-brand" href="{{action('ProdutoController@listar')}}">Controle de Estoque</a>
                 </div>
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" (click)="sidebarToggle()">
@@ -49,12 +49,13 @@
                                 </p>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{action('ProdutoController@listar')}}">Listar Produtos</a></li>
+                                <li><a href="{{action('ProdutoController@listar')}}">Produtos</a></li>
                                 <li class="divider"></li>
-                                <li><a href="{{action('CategoriaController@listar')}}">Listar Categorias</a></li>
+                                <li><a href="{{action('CategoriaController@listar')}}">Categorias de Produtos</a></li>
                                 <li class="divider"></li>
-                                <li><a href="{{action('EntradaController@listarEntrada')}}">Listar Entradas de Produtos</a></li>
-                                <li><a href="{{action('SaidaController@listarSaida')}}">Listar Saídas de Produtos</a></li>
+                                <li><a href="{{action('EntradaController@listarEntrada')}}">Entradas de Produtos</a></li>
+                                <li class="divider"></li>
+                                <li><a href="{{action('SaidaController@listarSaida')}}">Saída de Produtos</a></li>
                             </ul>
                         </li>
                                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Sair</a>

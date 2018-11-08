@@ -46,7 +46,7 @@
 
     @if(isset($relatorios))
         @switch($_REQUEST["id_relatorio"])
-                @case(1)
+                @case(1) <!--- Categorias Mais Entradas --->
                 <table id="listagem" class="table table-bordered">
                     <thead>
                     <tr>
@@ -66,7 +66,7 @@
                     </tbody>
                 </table>
                 @break
-            @case(2)
+            @case(2) <!--- Categorias Mais Saídas --->
                 <table id="listagem" class="table table-bordered">
                     <thead>
                       <tr>
@@ -86,13 +86,14 @@
                     </tbody>
                 </table>
                 @break
-                @case(3)
+                @case(3) <!--- Produtos Entrados --->
                 <table id="listagem" class="table table-bordered">
                     <thead>
                     <tr>
                         <th>Código Produto</th>
                         <th>Descrição</th>
                         <th>Quantidade</th>
+                        <th>Secretaria Pertencente</th>
                         <th>Data</th>
                         <th>Horário</th>
                     </tr>
@@ -103,6 +104,7 @@
                             <td>{{ $r->codigo_produto }}</td>
                             <td>{{ $r->descricao }}</td>
                             <td>{{ $r->quantidade }}</td>
+                            <td>{{ $r->secretaria }}</td>
                             <td>{{ date('d/m/Y', strtotime($r->created_at)) }}</td>
                             <td>{{ date('H:i:s', strtotime($r->created_at)) }}</td>
                         </tr>
@@ -110,13 +112,14 @@
                     </tbody>
                 </table>
                 @break
-                @case(4)
+                @case(4) <!--- Produtos Saídos --->
                 <table id="listagem" class="table table-bordered">
                     <thead>
                     <tr>
                         <th>Código Produto</th>
                         <th>Descrição</th>
                         <th>Quantidade</th>
+                        <th>Secretaria Pertencente</th>
                         <th>Data</th>
                         <th>Horário</th>
                     </tr>
@@ -127,6 +130,7 @@
                             <td>{{ $r->codigo_produto }}</td>
                             <td>{{ $r->descricao }}</td>
                             <td>{{ $r->quantidade }}</td>
+                            <td>{{ $r->secretaria }}</td>
                             <td>{{ date('d/m/Y', strtotime($r->created_at)) }}</td>
                             <td>{{ date('H:i:s', strtotime($r->created_at)) }}</td>
                         </tr>

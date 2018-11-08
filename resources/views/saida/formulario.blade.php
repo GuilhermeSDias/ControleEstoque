@@ -44,9 +44,16 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="quantidade">Quantidade</label>  
         <div class="col-md-4">
-            <input id="valor" name="quantidade" value="{{ old('quantidade') }}" type="text" placeholder="Insira quantidade do produto" class="form-control input-md" required>
+            <input id="quantidade" name="quantidade" value="{{ old('quantidade') }}" type="text" placeholder="Insira quantidade do produto" class="form-control input-md" required>
         </div>
     </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="quantidade">Secretaria</label>
+            <div class="col-md-4">
+                <input id="secretaria" name="secretaria" value="{{ old('secretaria') }}" type="text" placeholder="Informe a qual secretaria pertece essa entrada de produtos" class="form-control input-md" required>
+            </div>
+        </div>
 
     <!-- Button -->
     <div class="form-group">

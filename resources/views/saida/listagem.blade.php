@@ -1,9 +1,9 @@
 @extends('layout.principal')
 @section('conteudo')
 <div class="container">
-  <h2>Saídas</h2>
+  <h2>Saídas de Produtos</h2>
 
-  <button class="btn btn-default"><a href="{{action('SaidaController@novo')}}">Lançar Saída</a></button>
+  <button class="btn btn-default"><a href="{{action('SaidaController@novo')}}">Lançar Saídas</a></button>
 
   @if(session()->has('message.level'))
     <div class="alert alert-{{ session('message.level') }}"> 

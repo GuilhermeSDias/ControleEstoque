@@ -20,7 +20,7 @@ class RelatorioController extends Controller
     	// var_dump($request->all());exit;
  	
 		switch ($request["id_relatorio"]) {
-            case '1':
+            case '1': /*Categorias Mais Entradas*/
                 $relatorios = Produto
                     ::join('entradas', 'entradas.fk_produto', '=', 'produtos.id_produto')
                     ->join('categorias', 'categorias.id_categoria', '=', 'produtos.fk_categoria')
@@ -33,7 +33,7 @@ class RelatorioController extends Controller
                 $_REQUEST["id_relatorio"] = $request["id_relatorio"];
                 break;
 
-			case '2':
+			case '2': /*Categorias Mais Saídas*/
 				$relatorios = Produto
 		        ::join('saidas', 'saidas.fk_produto', '=', 'produtos.id_produto')
         		->join('categorias', 'categorias.id_categoria', '=', 'produtos.fk_categoria')
@@ -46,27 +46,27 @@ class RelatorioController extends Controller
 		        $_REQUEST["id_relatorio"] = $request["id_relatorio"];
 				break;
 
-            case '3':
+            case '3': /*Produtos Entrados*/
                 $relatorios = Produto
                     ::join('entradas', 'entradas.fk_produto', '=', 'produtos.id_produto')
-                    ->select('produtos.codigo_produto','produtos.descricao', 'entradas.quantidade', 'entradas.created_at')
+                    ->select('produtos.codigo_produto','produtos.descricao', 'entradas.quantidade', 'entradas.secretaria', 'entradas.created_at')
                     ->whereBetween('entradas.created_at',array($request["inicio"],$request["fim"]))
-                    ->groupBy('produtos.codigo_produto','produtos.descricao','entradas.quantidade','entradas.created_at')
+                    ->groupBy('produtos.codigo_produto','produtos.descricao','entradas.quantidade', 'entradas.secretaria','entradas.created_at')
                     ->getQuery() // Optional: downgrade to non-eloquent builder so we don't build invalid User objects.
-                    ->orderBy('produtos.descricao','entradas.created_at')
+                    ->orderBy('produtos.codigo_produto','entradas.created_at')
                     ->get();
 
                 $_REQUEST["id_relatorio"] = $request["id_relatorio"];
                 break;
 
-            case '4':
+            case '4': /*Produtos Saídos*/
                 $relatorios = Produto
                 ::join('saidas', 'saidas.fk_produto', '=', 'produtos.id_produto')
-                ->select('produtos.codigo_produto','produtos.descricao', 'saidas.quantidade', 'saidas.created_at')
+                ->select('produtos.codigo_produto','produtos.descricao', 'saidas.quantidade', 'saidas.secretaria', 'saidas.created_at')
                 ->whereBetween('saidas.created_at',array($request["inicio"],$request["fim"]))
-                ->groupBy('produtos.codigo_produto','produtos.descricao','saidas.quantidade','saidas.created_at')
+                ->groupBy('produtos.codigo_produto','produtos.descricao','saidas.quantidade', 'saidas.secretaria','saidas.created_at')
                 ->getQuery() // Optional: downgrade to non-eloquent builder so we don't build invalid User objects.
-                ->orderBy('produtos.descricao', 'entradas.created_at')
+                ->orderBy('produtos.codigo_produto', 'entradas.created_at')
                 ->get();
 
                 $_REQUEST["id_relatorio"] = $request["id_relatorio"];

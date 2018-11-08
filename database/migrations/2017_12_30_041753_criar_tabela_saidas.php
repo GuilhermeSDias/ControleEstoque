@@ -15,7 +15,8 @@ class CriarTabelaSaidas extends Migration
     {
         Schema::create('saidas', function (Blueprint $table) {
             $table->increments('id_saida');
-            $table->integer('quantidade'); 
+            $table->integer('quantidade');
+            $table->string('secretaria');
             $table->integer('fk_produto')->unsigned();
             $table->foreign('fk_produto')->references('id_produto')->on('produtos');
             $table->timestamps();
