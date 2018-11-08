@@ -71,7 +71,8 @@
         @yield('conteudo')
 
         <footer class="text-center">
-            <div>Prefeitura Municipal de Paraíso, Departamento de Ti</div>
+            <div>Prefeitura Municipal de Paraíso, Departamento de Ti </div>
+            <div>Desenvolvido por Guilherme dos Santos Dias - guilhermedude.7@gmail.com</div>
         </footer>
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
